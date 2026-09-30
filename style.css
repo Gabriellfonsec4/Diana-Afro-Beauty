@@ -1075,3 +1075,22 @@ details[open] summary::after {
     margin-inline: auto;
   }
 }
+/* Remove a cor azul padrão dos botões no iPhone */
+.gallery-item,
+.filters button {
+  color: #000;
+  -webkit-text-fill-color: #000;
+}
+
+.gallery-caption,
+.gallery-caption span,
+.zoom {
+  color: #000;
+  -webkit-text-fill-color: #000;
+}
+
+/* Mantém o texto branco no filtro selecionado */
+.filters button.active {
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}
