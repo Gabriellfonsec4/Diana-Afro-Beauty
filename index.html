@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171816">
 
@@ -11,6 +11,9 @@
   <meta name="description" content="Tranças que destacam sua beleza. Conheça os trabalhos de Diana Afro Beauty em Jacaraípe, Serra–ES.">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preload" as="image" href="assets/perfil.webp" fetchpriority="high">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,13 +21,14 @@
   <header>
     <a class="brand" href="#inicio">
       <span class="monogram">DA</span>
+
       <span>
         DIANA
         <span class="brand-small">AFRO BEAUTY</span>
       </span>
     </a>
 
-    <button class="menu" aria-label="Abrir menu" aria-expanded="false">
+    <button class="menu" type="button" aria-label="Abrir menu" aria-expanded="false">
       <span></span>
       <span></span>
     </button>
@@ -76,7 +80,7 @@
       </div>
 
       <div class="hero-photo">
-        <img src="assets/perfil.png" alt="Diana, profissional do Diana Afro Beauty" fetchpriority="high">
+        <img src="assets/perfil.webp" alt="Diana, profissional do Diana Afro Beauty" fetchpriority="high" loading="eager" decoding="async">
 
         <span class="photo-label">
           DIANA AFRO BEAUTY
@@ -205,27 +209,27 @@
       </div>
 
       <div class="filters" role="group" aria-label="Filtrar resultados">
-        <button class="active" data-filter="Todos" aria-pressed="true">
+        <button class="active" type="button" data-filter="Todos" aria-pressed="true">
           Todos
         </button>
 
-        <button data-filter="Nagô" aria-pressed="false">
+        <button type="button" data-filter="Nagô" aria-pressed="false">
           Nagô
         </button>
 
-        <button data-filter="Box braids" aria-pressed="false">
+        <button type="button" data-filter="Box braids" aria-pressed="false">
           Box braids
         </button>
 
-        <button data-filter="French curl" aria-pressed="false">
+        <button type="button" data-filter="French curl" aria-pressed="false">
           French curl
         </button>
 
-        <button data-filter="Ghana braids" aria-pressed="false">
+        <button type="button" data-filter="Ghana braids" aria-pressed="false">
           Ghana braids
         </button>
 
-        <button data-filter="Entrelace" aria-pressed="false">
+        <button type="button" data-filter="Entrelace" aria-pressed="false">
           Entrelace
         </button>
       </div>
@@ -249,19 +253,19 @@
       </p>
 
       <div class="choices">
-        <button data-choice="Nagô">
+        <button type="button" data-choice="Nagô">
           Desenhos de nagô
         </button>
 
-        <button data-choice="French curl">
+        <button type="button" data-choice="French curl">
           Cachos e movimento
         </button>
 
-        <button data-choice="Box braids">
+        <button type="button" data-choice="Box braids">
           Versatilidade das box braids
         </button>
 
-        <button data-choice="Entrelace">
+        <button type="button" data-choice="Entrelace">
           Volume do entrelace
         </button>
       </div>
@@ -390,13 +394,13 @@
   </a>
 
   <dialog id="lightbox">
-    <button class="close" aria-label="Fechar imagem">
+    <button class="close" type="button" aria-label="Fechar imagem">
       <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M6 6l12 12M18 6 6 18" />
       </svg>
     </button>
 
-    <button class="prev" aria-label="Imagem anterior">
+    <button class="prev" type="button" aria-label="Imagem anterior">
       <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="m15 5-7 7 7 7" />
       </svg>
@@ -407,7 +411,7 @@
       <figcaption></figcaption>
     </figure>
 
-    <button class="next" aria-label="Próxima imagem">
+    <button class="next" type="button" aria-label="Próxima imagem">
       <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="m9 5 7 7-7 7" />
       </svg>

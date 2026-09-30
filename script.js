@@ -15,7 +15,7 @@ const dialog = document.querySelector("#lightbox");
 let visible = works;
 let current = 0;
 
-/* Galeria com ícone SVG, sem emojis */
+/* Fotos WebP com carregamento iniciado ao abrir a página */
 function render(filter = "Todos") {
   visible = works.filter((work) => filter === "Todos" || work[1] === filter);
 
@@ -30,9 +30,10 @@ function render(filter = "Todos") {
     >
       <div class="gallery-image">
         <img
-          src="assets/resultado-${work[0]}.png"
+          src="assets/resultado-${work[0]}.webp"
           alt="${work[1]} — ${work[2]}"
-          loading="lazy"
+          loading="eager"
+          decoding="async"
         >
 
         <span class="zoom" aria-hidden="true">
@@ -77,7 +78,7 @@ function show(index) {
   const work = visible[current];
   const image = dialog.querySelector("img");
 
-  image.src = `assets/resultado-${work[0]}.png`;
+  image.src = `assets/resultado-${work[0]}.webp`;
   image.alt = `${work[1]} — ${work[2]}`;
 
   dialog.querySelector("figcaption").textContent =
@@ -98,21 +99,21 @@ grid.addEventListener("click", (event) => {
   dialog.showModal();
 });
 
-/* Filtros */
+/* Filtros da galeria */
 document.querySelectorAll("[data-filter]").forEach((button) => {
   button.addEventListener("click", () => {
     render(button.dataset.filter);
   });
 });
 
-/* Filtrar ao selecionar uma especialidade */
+/* Seleção de especialidades */
 document.querySelectorAll("[data-style]").forEach((link) => {
   link.addEventListener("click", () => {
     render(link.dataset.style);
   });
 });
 
-/* Controles da imagem ampliada */
+/* Controles da foto ampliada */
 dialog.querySelector(".close").addEventListener("click", closeLightbox);
 
 dialog.querySelector(".prev").addEventListener("click", () => {
@@ -123,7 +124,7 @@ dialog.querySelector(".next").addEventListener("click", () => {
   show(current + 1);
 });
 
-/* Fechar clicando fora da imagem */
+/* Fechar clicando fora da foto */
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) {
     closeLightbox();
@@ -145,7 +146,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-/* Navegação por deslize no celular */
+/* Deslizar entre fotos no celular */
 let touchStart = null;
 
 dialog.addEventListener(
@@ -240,5 +241,5 @@ choiceButtons.forEach((button) => {
 /* Ano do rodapé */
 document.querySelector("#year").textContent = new Date().getFullYear();
 
-/* Carregar galeria */
+/* Inicia o carregamento de todas as fotos */
 render();
